@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <style>
+        body {
+            background-color: #333; /* Dark background */
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .birthday-card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 60px auto;
+            border: 10px solid #ff6347; /* Book border color */
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden; /* Hide anything outside */
+            transform-origin: center;
+        }
+
+        /* Cover of the book (image part) */
+        .birthday-card .cover {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxBT3o0SFFDbVdEa3x8ZW58MHx8fHw%3D&w=1000&q=80");
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+            z-index: 1; /* Cover stays on top */
+            transform-origin: left center; /* Flip from left */
+        }
+
+        /* Content inside the card (text) */
+        .birthday-card .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #111; /* Dark background for content */
+            color: white;
+            overflow-y: auto;
+            font-size: 1em;
+            font-style: italic;
+            text-align: center;
+            border-radius: 10px;
+            z-index: 0; /* Content stays behind the cover initially */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .birthday-card .content p {
+            margin: 15px 0;
+        }
+
+        .birthday-card .text {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 40px 0 20px;
+        }
+
+        /* Hover effect for the flip animation on cover */
+        .birthday-card.clicked .cover {
+            transform: rotateY(-180deg);
+        }
+
+        .birthday-card.clicked .content {
+            opacity: 1; /* Show content */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="birthday-card" onclick="flipCard()">
+        <div class="cover"></div>
+        <div class="content">
+            <div class="text">Happy Birthday, Bestie! 🎉</div>
+            <p>Hey, today is your special day, and I couldn’t be more excited to celebrate it with you!</p>
+            <p>You’ve been my PUBG partner, my laughter, my emotional support, and my confidant. From every match we’ve played to the countless memories we’ve created, you’ve made my life brighter and happier.</p>
+            <p>Thank you for being my pillar of strength when I needed it most and my biggest cheerleader when I doubted myself. Your friendship is a treasure I’ll always cherish.</p>
+            <p>On your birthday, I wish you endless joy, love, and success. May all your dreams come true, and may you always find reasons to smile.</p>
+            <p>Here’s to many more matches, late-night chats, and unforgettable adventures together. You’re truly one of a kind, and the world is a better place with you in it.</p>
+            <p>Let’s make this day as special as you are! 🎂🥳</p>
+            <p>Happy Birthday once again, my amazing bestie. Keep shining, keep smiling, and never forget how much you’re loved. 🎉❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.querySelector('.birthday-card').classList.toggle('clicked');
+        }
+    </script>
+
+</body>
+</html>
